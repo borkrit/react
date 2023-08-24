@@ -94,7 +94,7 @@ var Product = React.createElement(
     React.createElement(
         "h1",
         null,
-        "Hello, world!"
+        "Car Specs"
     ),
     React.createElement(
         "table",

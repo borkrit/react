@@ -118,7 +118,7 @@ const CARS = [
 
 
 const Product = <React.Fragment>
-<h1>Hello, world!</h1>
+<h1>Car Specs</h1>
 <table>
 <tbody>
   {CARS.map((item, key) => (
