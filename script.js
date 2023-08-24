@@ -137,12 +137,14 @@ var Product = React.createElement(
                                             React.createElement(
                                                 "ul",
                                                 null,
-                                                Object.keys(item.models[k].collection[e]).map(function (el, l) {
+                                                Object.keys(item.models[k].collection[e]).filter(function (el) {
+                                                    return el !== 'id';
+                                                }).map(function (el, l) {
                                                     return React.createElement(
                                                         "li",
                                                         { key: l },
                                                         el,
-                                                        " ",
+                                                        " : ",
                                                         item.models[k].collection[e][el]
                                                     );
                                                 })
@@ -157,12 +159,14 @@ var Product = React.createElement(
                                             React.createElement(
                                                 "ul",
                                                 null,
-                                                Object.keys(item.models[k].collection[e]).map(function (el, l) {
+                                                Object.keys(item.models[k].collection[e]).filter(function (el) {
+                                                    return el !== 'id';
+                                                }).map(function (el, l) {
                                                     return React.createElement(
                                                         "li",
                                                         { key: l },
                                                         el,
-                                                        " ",
+                                                        " : ",
                                                         item.models[k].collection[e][el]
                                                     );
                                                 })

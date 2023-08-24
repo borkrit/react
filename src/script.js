@@ -137,8 +137,8 @@ const Product = <React.Fragment>
                         <td rowSpan={2} className="cell__model">{item.models[k].name}</td>
                         <td className='cell__info' >
                             <ul>
-                            {Object.keys(item.models[k].collection[e]).map((el, l) => (
-                                <li key={l}>{el} {item.models[k].collection[e][el]}</li>
+                            {Object.keys(item.models[k].collection[e]).filter(el=>el !== 'id' ).map((el, l) => (
+                                <li key={l}>{el} : {item.models[k].collection[e][el]}</li> 
                             ))}
                             </ul>
                         </td>
@@ -148,8 +148,9 @@ const Product = <React.Fragment>
                     <tr>
                       <td className='cell__info' >
                         <ul>
-                          {Object.keys(item.models[k].collection[e]).map((el, l) => (
-                            <li key={l}>{el} {item.models[k].collection[e][el]}</li>
+                          {Object.keys(item.models[k].collection[e]).filter(el=>el !== 'id' ).map((el, l) => (
+                              <li key={l}>{el} : {item.models[k].collection[e][el]}</li> 
+                            
                           ))}
                         </ul>
                       </td>
