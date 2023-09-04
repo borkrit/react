@@ -123,36 +123,14 @@ var Product = React.createElement(
                                 return React.createElement(
                                     React.Fragment,
                                     { key: j },
-                                    j === 0 ? React.createElement(
+                                    React.createElement(
                                         "tr",
                                         null,
-                                        React.createElement(
+                                        j === 0 ? React.createElement(
                                             "td",
                                             { rowSpan: 2, className: "cell__model" },
                                             item.models[k].name
-                                        ),
-                                        React.createElement(
-                                            "td",
-                                            { className: "cell__info" },
-                                            React.createElement(
-                                                "ul",
-                                                null,
-                                                Object.keys(item.models[k].collection[e]).filter(function (el) {
-                                                    return el !== 'id';
-                                                }).map(function (el, l) {
-                                                    return React.createElement(
-                                                        "li",
-                                                        { key: l },
-                                                        el,
-                                                        " : ",
-                                                        item.models[k].collection[e][el]
-                                                    );
-                                                })
-                                            )
-                                        )
-                                    ) : React.createElement(
-                                        "tr",
-                                        null,
+                                        ) : null,
                                         React.createElement(
                                             "td",
                                             { className: "cell__info" },

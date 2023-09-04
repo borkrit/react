@@ -132,9 +132,9 @@ const Product = <React.Fragment>
           
               {Object.keys(item.models[k].collection).map((e, j) => (
                 <React.Fragment key={j}>
-                  {j === 0 ? (
+                  
                    <tr>
-                        <td rowSpan={2} className="cell__model">{item.models[k].name}</td>
+                        {j === 0 ? ( <td rowSpan={2} className="cell__model">{item.models[k].name}</td>) : null }
                         <td className='cell__info' >
                             <ul>
                             {Object.keys(item.models[k].collection[e]).filter(el=>el !== 'id' ).map((el, l) => (
@@ -143,19 +143,8 @@ const Product = <React.Fragment>
                             </ul>
                         </td>
                     </tr>
-                  ) : (
-                   
-                    <tr>
-                      <td className='cell__info' >
-                        <ul>
-                          {Object.keys(item.models[k].collection[e]).filter(el=>el !== 'id' ).map((el, l) => (
-                              <li key={l}>{el} : {item.models[k].collection[e][el]}</li> 
-                            
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  )}
+                 
+                 
                 </React.Fragment>
               ))}
          
