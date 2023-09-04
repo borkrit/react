@@ -26,10 +26,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (selectedAnimal.includes(animals[currentIndex]) == false) {
-      if (animals[currentIndex] != undefined) {
+    if (selectedAnimal.includes(animals[currentIndex]) == false && animals[currentIndex] != undefined) {
         setSelectedAnimal([...selectedAnimal, animals[currentIndex]]);
-      }
     }
   }, [currentIndex]);
 
