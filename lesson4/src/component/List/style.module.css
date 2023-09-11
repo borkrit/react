@@ -1,0 +1,17 @@
+
+.completed td:first-child{
+    color: rgb(198, 216, 198);
+}
+.completed td {
+    background: #559626;
+}
+
+.process td:first-child{
+    color: rgba(0, 0, 0, 0.983);
+}
+.process td {
+    background: #ff000042;
+}
+
+
+
