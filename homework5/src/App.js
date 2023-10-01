@@ -11,15 +11,13 @@ function App() {
   const [change, setChange] = useState(false);
   const [changePerson, setChangePerson] = useState(null);
   const [update, setUpdate] = useState(false);
-  useEffect(() => {
-    axios.get("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
-      .then((res) => setData(res.data))
-  }, []);
+ 
 
   useEffect(() => {
+    axios.get("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
+    .then((res) => setData(res.data))
     if (update === true) {
-      axios.get("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
-      .then((res) => setData(res.data))
+     
       setUpdate(false);
       setChange(false)
     }
