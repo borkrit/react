@@ -33,7 +33,7 @@ const Form = ({ action, data, setData, txtBtn, type = "" }) => {
         id="outlined-basic"
         label="lastName"
         name="lastName"
-        defaultValue={data.department}
+        defaultValue={data.lastName}
         variant="outlined"
         onChange={(e) => setData({ ...data, [e.target.name]: e.target.value })}
       />

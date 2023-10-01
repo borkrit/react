@@ -21,7 +21,7 @@ function App() {
       axios.get("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
       .then((res) => setData(res.data))
       setUpdate(false);
-      setChange(!change)
+      setChange(false)
     }
 
   }, [update]);
