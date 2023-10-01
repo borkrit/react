@@ -4,6 +4,7 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Form from "../Form/Form";
+import axios from "axios";
 
 const AddPerson = ({ setUpdate }) => {
   const [addPerson, setAddPerson] = useState({
@@ -13,13 +14,19 @@ const AddPerson = ({ setUpdate }) => {
   });
 
   const handelAdd = async () => {
-    await fetch(`https://6517dcef582f58d62d352dd2.mockapi.io/Person`, {
-      method: "POST",
-      body: JSON.stringify(addPerson),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
+    await axios.post(
+      `https://6517dcef582f58d62d352dd2.mockapi.io/Person`,
+      {
+        department: addPerson.department,
+        firstName: addPerson.firstName,
+        lastName: addPerson.lastName,
       },
-    });
+      {
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
 
     setUpdate(true);
   };

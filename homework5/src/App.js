@@ -4,24 +4,26 @@ import Container from "@mui/material/Container";
 import CardPerson from "./components/Card/CardPerson";
 import AddPerson from "./components/AddPerson/AddPerson";
 import ChangeInfo from "./components/ChangeInfo/ChangeInfo";
+import axios from "axios";
 
 function App() {
   const [data, setData] = useState(null);
   const [change, setChange] = useState(false);
   const [changePerson, setChangePerson] = useState(null);
   const [update, setUpdate] = useState(false);
-
   useEffect(() => {
-    fetch("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
-    .then((res) => setData(res.json()))
+    axios.get("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
+      .then((res) => setData(res.data))
   }, []);
 
   useEffect(() => {
     if (update === true) {
-      fetch("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
-        .then((res) => setData(res.json()))
+      axios.get("https://6517dcef582f58d62d352dd2.mockapi.io/Person")
+      .then((res) => setData(res.data))
       setUpdate(false);
+      setChange(!change)
     }
+
   }, [update]);
 
   const handelChangeInfo = (item) => {
@@ -31,9 +33,7 @@ function App() {
 
   const handelDelPerson = async (id) => {
     try {
-      await fetch(`https://6517dcef582f58d62d352dd2.mockapi.io/Person/${id}`, {
-        method: "DELETE",
-      }).then((respons) =>
+      await axios.delete(`https://6517dcef582f58d62d352dd2.mockapi.io/Person/${id}`).then((respons) =>
         respons.status == 200
           ? setData(data.filter((item) => item.id != id))
           : null
@@ -52,6 +52,7 @@ function App() {
             setChangePerson={setChangePerson}
             data={data}
             setData={setData}
+            setChange={setChange}
           />
         ) : (
           <AddPerson setUpdate={setUpdate} />
