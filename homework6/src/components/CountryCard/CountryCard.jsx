@@ -26,13 +26,17 @@ const CountryCard = () => {
         return (
           <div key={key}>
             <h2>{key}</h2>
+            <ul>
+                <li>
             {renderData(obj[key])}
+                </li>
+            </ul>
           </div>
         );
       } else if (Array.isArray(obj[key])) {
         return (
           <div key={key} style={{ display: "flex" }}>
-            <h2>{key}</h2> :
+            <p>{key}</p> :
             <ul>
               {obj[key].map((item, index) => (
                 <li key={index}>{item}</li>
@@ -43,7 +47,7 @@ const CountryCard = () => {
       } else {
         return (
           <div key={key} style={{ display: "flex" }}>
-            <h2>{key}</h2> -<p>{obj[key]}</p>
+            <p>{key}</p> : <p>{obj[key]}</p>
           </div>
         );
       }
